@@ -1,0 +1,365 @@
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/reboot";
+@import "bootstrap/grid";
+@import "bootstrap/utilities/flex";
+@import "bootstrap/utilities/display";
+
+@import '../css/font.css';
+
+$green: #0C8543;
+$turquoise: #F3F9F6;
+$gray: #F6F6F6;
+
+@mixin font($font-size, $line-height) {
+   font-size: $font-size;
+   line-height: $line-height;
+}
+
+* {
+   font-family: "Montserrat", sans-serif;
+   color: $black;
+}
+
+section {
+   padding: 35px 0;
+
+   @include media-breakpoint-up(lg) {
+      padding: 60px 0;
+   }
+}
+
+.block {
+   padding: 10px 0;
+   
+   @include media-breakpoint-up(md) {
+      padding: 20px 0;
+   }
+
+   &_header {
+      text-align: center;
+      border-bottom: 1px solid #E0E0E0;
+   }
+   
+   &_footer {
+      padding: 25px 0;
+      background-color: $green;
+   }
+}
+
+.logo {
+   @include size(150px, 50px);
+
+   @include media-breakpoint-up(md) {
+      @include size(168px, 56px);
+   }
+}
+
+.title {
+   @include font(20px, 26px);
+   font-weight: 700;
+   margin-bottom: 15px;
+
+   @include media-breakpoint-up(lg) {
+      @include font(27px, 36px);
+   }
+
+   &_large {
+      @include font(22px, 26px);
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+      @include media-breakpoint-up(lg) {
+         @include font(45px, 60px);
+      }
+   }
+
+   &_green {
+      color: $green;
+   }
+
+   &_margin {
+      margin-bottom: 25px;
+
+      @include media-breakpoint-up(lg) {
+         margin-bottom: 50px;
+      }
+   }
+
+   &_center {
+      text-align: center;
+   }
+}
+
+.text {
+   @include font(16px, 24px);
+   font-weight: 500;
+   margin-bottom: 0;
+
+   @include media-breakpoint-up(lg) {
+      @include font(18px, 26px);
+   }
+
+   &_white {
+      color: $white;
+   }
+
+   &_center {
+      text-align: center;
+   }
+
+   &_margin {
+      margin-bottom: 25px;
+   }
+}
+
+.advantage {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin: 0 -4px;
+
+   @include media-breakpoint-up(md) {
+      margin: 0 -10px;
+   }
+
+   &__item {
+      width: calc(50% - 8px);
+      border-radius: 8px;
+      background-color: $turquoise;
+      padding: 20px 12px;
+      margin: 0 4px 8px;
+
+      @include media-breakpoint-up(md) {
+         width: auto;
+         flex: 1;
+         margin: 0 10px 0;
+         border-radius: 0px;
+      }
+
+      @include media-breakpoint-up(lg) {
+         padding: 30px 18px;
+      }
+   }
+
+   &__iconWrapper {
+      height: 70px;
+      text-align: center;
+      margin-bottom: 15px;
+   }
+
+   &__icon {
+      @include size(70px, 70px);
+   }
+
+   &__text {
+      @include font(16px, 20px);
+      font-weight: 500;
+      text-align: center;
+      word-break: break-word;
+      margin-bottom: 0;
+
+      @include media-breakpoint-up(lg) {
+         @include font(21px, 27px);
+      }
+   }
+}
+
+.questionBlock {
+   background-color: $turquoise;
+}
+
+.question {
+   margin-bottom: 30px;
+
+   @include media-breakpoint-up(lg) {
+      margin-bottom: 40px;
+   }
+
+   &:last-child {
+      margin-bottom: 0;
+   }
+
+   &__text {
+      margin-bottom: 20px;
+
+      @include media-breakpoint-up(md) {
+         margin-bottom: 0;
+      }
+   }
+
+   &__image {
+      @include img-fluid();
+   }
+
+   &__fixedIcon {
+      @include size(200px, 72px);
+      position: absolute;
+      right: 25px;
+      top: 10px;
+
+      @include media-breakpoint-up(lg) {
+         right: -5px;
+         top: -20px;
+      }
+
+      @include media-breakpoint-up(lg) {
+         @include size(240px, 87px);
+      }
+   }
+}
+
+.pricesBlock {
+
+   &__item {
+      height: 100%;
+      background-color: $green;
+      border-radius: 8px;
+   }
+
+   &__imageWrapper {
+      height: 74px;
+      text-align: center;
+      border-radius: 8px;
+      overflow: hidden;
+
+      @include media-breakpoint-up(lg) {
+         height: 104px;
+      }
+
+      @include media-breakpoint-up(xl) {
+         height: 126px;
+      }
+   }
+   
+   &__image {
+      @include img-fluid();
+   }
+
+   &__text {
+      @include font(14px, 20px);
+      font-weight: 500;
+      color: $white;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 0px;
+      word-break: break-word;
+
+      @include media-breakpoint-up(lg) {
+         @include font(18px, 24px);
+      }
+
+      @include media-breakpoint-up(xl) {
+         @include font(21px, 27px);
+         padding: 15px;
+      }
+   }
+}
+
+.lifetimeBlock {
+   background-color: $gray;
+
+   @include media-breakpoint-up(lg) {
+      height: 178px;
+      padding: 0;
+   }
+
+   @include media-breakpoint-up(xl) {
+      height: 216px;
+   }
+}
+
+.lifetime {
+
+   &__wrapper {
+
+      @include media-breakpoint-up(lg) {
+         position: relative;
+         top: -10px;
+      }
+
+      @include media-breakpoint-up(xl) {
+         top: -12px;
+      }
+   }
+
+   &__image {
+      display: block;
+      margin: 0 auto 20px;
+      @include size(170px, 160px);
+
+      @include media-breakpoint-up(md) {
+         width: auto;
+         @include img-fluid();
+         margin-bottom: 0;
+      }
+   }
+
+   &__content {
+      text-align: center;
+
+      @include media-breakpoint-up(md) {
+         text-align: left;
+      }
+   }
+}
+
+.footerBar {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   @include media-breakpoint-up(md) {
+      flex-direction: row;
+      justify-content: space-between;
+   }
+
+   &__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 25px 0;
+
+      @include media-breakpoint-up(lg) {
+         flex-direction: row;
+         justify-content: space-between;
+         width: 570px;
+      }
+
+      @include media-breakpoint-up(xl) {
+         width: 610px;
+      }
+   }
+
+   &__item {
+      @include font(14px, 17px);
+      font-weight: 500;
+      color: $white;
+      text-decoration: underline;
+      transition: .2s color;
+      margin-bottom: 15px;
+
+      &:last-of-type {
+         margin-bottom: 0;
+      }
+
+      &:hover {
+         text-decoration: none;
+         color: rgb(186, 186, 186);
+      }
+
+      @include media-breakpoint-up(lg) {
+         margin-bottom: 0;
+      }
+   }
+
+   &__rights {
+      @include font(12px, 18px);
+      font-weight: 500;
+      color: $white;
+
+      @include media-breakpoint-up(md) {
+         width: 124px;
+      }
+   }
+}
