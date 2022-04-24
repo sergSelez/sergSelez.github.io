@@ -2335,30 +2335,44 @@ template {
   color: #000;
 }
 
-section {
-  padding: 35px 0;
+.section {
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 @media (min-width: 992px) {
-  section {
-    padding: 60px 0;
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+.section_question {
+  background-color: #F3F9F6;
+}
+.section_lifetime {
+  background-color: #F6F6F6;
+}
+@media (min-width: 992px) {
+  .section_lifetime {
+    height: 178px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .section_lifetime {
+    height: 216px;
   }
 }
 
-.block {
+.header {
   padding: 10px 0;
-}
-@media (min-width: 768px) {
-  .block {
-    padding: 20px 0;
-  }
-}
-.block_header {
   text-align: center;
   border-bottom: 1px solid #E0E0E0;
 }
-.block_footer {
-  padding: 25px 0;
-  background-color: #0C8543;
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 0;
+  }
 }
 
 .logo {
@@ -2387,6 +2401,7 @@ section {
 .title_large {
   font-size: 22px;
   line-height: 26px;
+  font-weight: 600;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 992px) {
@@ -2397,6 +2412,7 @@ section {
 }
 .title_green {
   color: #0C8543;
+  font-weight: 700;
 }
 .title_margin {
   margin-bottom: 25px;
@@ -2487,10 +2503,6 @@ section {
   }
 }
 
-.questionBlock {
-  background-color: #F3F9F6;
-}
-
 .question {
   margin-bottom: 30px;
 }
@@ -2534,32 +2546,32 @@ section {
   }
 }
 
-.pricesBlock__item {
+.prices__item {
   height: 100%;
   background-color: #0C8543;
   border-radius: 8px;
 }
-.pricesBlock__imageWrapper {
+.prices__imageWrapper {
   height: 74px;
   text-align: center;
   border-radius: 8px;
   overflow: hidden;
 }
 @media (min-width: 992px) {
-  .pricesBlock__imageWrapper {
+  .prices__imageWrapper {
     height: 104px;
   }
 }
 @media (min-width: 1200px) {
-  .pricesBlock__imageWrapper {
+  .prices__imageWrapper {
     height: 126px;
   }
 }
-.pricesBlock__image {
+.prices__image {
   max-width: 100%;
   height: auto;
 }
-.pricesBlock__text {
+.prices__text {
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
@@ -2570,31 +2582,16 @@ section {
   word-break: break-word;
 }
 @media (min-width: 992px) {
-  .pricesBlock__text {
+  .prices__text {
     font-size: 18px;
     line-height: 24px;
   }
 }
 @media (min-width: 1200px) {
-  .pricesBlock__text {
+  .prices__text {
     font-size: 21px;
     line-height: 27px;
     padding: 15px;
-  }
-}
-
-.lifetimeBlock {
-  background-color: #F6F6F6;
-}
-@media (min-width: 992px) {
-  .lifetimeBlock {
-    height: 178px;
-    padding: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .lifetimeBlock {
-    height: 216px;
   }
 }
 
@@ -2632,36 +2629,40 @@ section {
   }
 }
 
-.footerBar {
+.footer {
+  padding: 25px 0;
+  background-color: #0C8543;
+}
+.footer__bar {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (min-width: 768px) {
-  .footerBar {
+  .footer__bar {
     flex-direction: row;
     justify-content: space-between;
   }
 }
-.footerBar__menu {
+.footer__menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 25px 0;
 }
 @media (min-width: 992px) {
-  .footerBar__menu {
+  .footer__menu {
     flex-direction: row;
     justify-content: space-between;
     width: 570px;
   }
 }
 @media (min-width: 1200px) {
-  .footerBar__menu {
+  .footer__menu {
     width: 610px;
   }
 }
-.footerBar__item {
+.footer__item {
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
@@ -2670,26 +2671,26 @@ section {
   transition: 0.2s color;
   margin-bottom: 15px;
 }
-.footerBar__item:last-of-type {
+.footer__item:last-of-type {
   margin-bottom: 0;
 }
-.footerBar__item:hover {
+.footer__item:hover {
   text-decoration: none;
   color: rgb(186, 186, 186);
 }
 @media (min-width: 992px) {
-  .footerBar__item {
+  .footer__item {
     margin-bottom: 0;
   }
 }
-.footerBar__rights {
+.footer__rights {
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
   color: #fff;
 }
 @media (min-width: 768px) {
-  .footerBar__rights {
+  .footer__rights {
     width: 124px;
   }
 }
