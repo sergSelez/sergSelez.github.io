@@ -3,10 +3,10 @@ import React from 'react'
 interface ITaskFormProps {
   inputTaskName: string,
   setInputTaskName: React.Dispatch<React.SetStateAction<string>>,
-  createTask: (event: any) => void,
+  createTask: (event: React.FormEvent<HTMLButtonElement>) => void,
 }
 
-const TaskForm = ({inputTaskName, setInputTaskName, createTask}: ITaskFormProps) => {  
+const TaskForm: React.FC<ITaskFormProps> = ({inputTaskName, setInputTaskName, createTask}) => {  
   return (
     <form>
       <input 

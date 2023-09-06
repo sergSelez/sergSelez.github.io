@@ -1,6 +1,5 @@
 import React from 'react'
 import { ITask } from '../../../interfaces/Task'
-// import classes from './TaskItem.module.scss'
 
 interface ITaskItemProps {
   task: ITask;

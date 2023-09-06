@@ -5,6 +5,7 @@ interface ITaskFilterProps {
   filterType: FilterType,
   setFilterType: React.Dispatch<React.SetStateAction<FilterType>>,
   amountOfAciveTasks: number,
+  removeUnactiveTasks: () => void
 }
 
 const buttons = [
@@ -13,7 +14,7 @@ const buttons = [
   {id: 3, text: FilterName.COMPLETED, value: FilterType.COMPLETED},
 ]
 
-const TaskFilter = ({filterType, setFilterType, amountOfAciveTasks}: ITaskFilterProps) => {  
+const TaskFilter: React.FC<ITaskFilterProps> = ({filterType, setFilterType, amountOfAciveTasks, removeUnactiveTasks}) => {  
   return (
     <div className='filter'>
       <div className='filter-count'>
@@ -30,7 +31,7 @@ const TaskFilter = ({filterType, setFilterType, amountOfAciveTasks}: ITaskFilter
           </button>
         )}
       </div>
-      <button className='button'>Clear completed</button>
+      <button className='button' onClick={removeUnactiveTasks}>Clear completed</button>
     </div>
   )
 }

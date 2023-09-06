@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import TaskForm from './TaskForm/TaskForm'
 import TaskItem from './TaskItem/TaskItem'
 import TaskFilter from './TaskFilter/TaskFilter'
@@ -7,7 +7,7 @@ import { ITask } from '../../interfaces/Task'
 import { taskList } from '../../data/mockTasks'
 import { FilterType } from '../../enums/filterType'
 
-const MainPage = () => {
+const MainPage: React.FC = () => {
   const [inputTaskName, setInputTaskName] = useState<string>('')
   const [filterType, setFilterType] = useState<FilterType>(FilterType.ALL)
   const [tasks, setTasks] = useState<ITask[]>(taskList)
@@ -20,9 +20,8 @@ const MainPage = () => {
   
   const amountOfAciveTasks = filteredTasks.filter(task => task.active).length
 
-  const createTask = (event: Event) => {
+  const createTask = (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault()    
-
     if (!inputTaskName) return
 
     const newTask = {
@@ -48,7 +47,8 @@ const MainPage = () => {
   }
 
   const removeUnactiveTasks = () => {
-
+    const cleanedTasks = tasks.filter(task => task.active)
+    setTasks(cleanedTasks)
   }
 
   return (
@@ -69,6 +69,7 @@ const MainPage = () => {
         amountOfAciveTasks={amountOfAciveTasks} 
         filterType={filterType} 
         setFilterType={setFilterType}
+        removeUnactiveTasks={removeUnactiveTasks}
       />
     </>
   );
