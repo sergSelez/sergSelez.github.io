@@ -1,15 +1,21 @@
 import React from 'react'
 
-const TaskForm = (props: any) => {
+interface ITaskFormProps {
+  inputTaskName: string,
+  setInputTaskName: React.Dispatch<React.SetStateAction<string>>,
+  createTask: (event: any) => void,
+}
+
+const TaskForm = ({inputTaskName, setInputTaskName, createTask}: ITaskFormProps) => {  
   return (
     <form>
       <input 
-        className='taskForm'
+        className='task-form'
         placeholder='What needs to be done?' 
-        value={props.inputTaskName} 
-        onChange={e => props.setInputTaskName(e.target.value)}
+        value={inputTaskName} 
+        onChange={event => setInputTaskName(event.target.value)}
       />
-      <button onClick={props.createTask}>Create</button>
+      <button onClick={createTask}>Create</button>
     </form>
   )
 }
