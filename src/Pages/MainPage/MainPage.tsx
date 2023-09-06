@@ -11,11 +11,12 @@ const MainPage = () => {
   const [inputTaskName, setInputTaskName] = useState<string>('')
   const [filterType, setFilterType] = useState<FilterType>(FilterType.ALL)
   const [tasks, setTasks] = useState<ITask[]>(taskList)
-  const [filteredTasks, setFilteredTasks] = useState<ITask[]>(tasks)
 
-  useEffect(() => {
-    filterTasks()
-  }, [filterType])
+  const filteredTasks = tasks.filter(task => {
+    if(filterType === FilterType.ACTIVE) return task.active
+    else if(filterType === FilterType.COMPLETED) return !task.active
+    else return true
+  })
   
   const amountOfAciveTasks = filteredTasks.filter(task => task.active).length
 
@@ -29,12 +30,12 @@ const MainPage = () => {
       title: inputTaskName.trim(),
       active: true,
     }
-    setFilteredTasks([ ...filteredTasks, newTask ])
+    setTasks([ ...tasks, newTask ])
     setInputTaskName('') 
   }
 
   const completeTask = (id: number) => {
-    const result = filteredTasks.map(task => {
+    const result = tasks.map(task => {
       if(task.id === id) {
         return {
           ...task,
@@ -43,17 +44,7 @@ const MainPage = () => {
       }
       return task
     }) 
-    setFilteredTasks(result)
-    // filterTasks()
-  }
-
-  const filterTasks = () => {
-    if (filterType === FilterType.ALL) {
-      return setFilteredTasks(tasks)
-    } else {
-      const result = [...tasks].filter(task => task.active === !!filterType)
-      setFilteredTasks(result)
-    }
+    setTasks(result)
   }
 
   const removeUnactiveTasks = () => {
