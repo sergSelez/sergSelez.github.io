@@ -1,4 +1,5 @@
 import React from 'react'
+import classes from './TaskForm.module.scss'
 
 interface ITaskFormProps {
   inputTaskName: string,
@@ -10,12 +11,12 @@ const TaskForm: React.FC<ITaskFormProps> = ({inputTaskName, setInputTaskName, cr
   return (
     <form>
       <input 
-        className='task-form'
+        className={classes.form}
         placeholder='What needs to be done?' 
         value={inputTaskName} 
         onChange={event => setInputTaskName(event.target.value)}
       />
-      <button onClick={createTask}>Create</button>
+      <button className={classes['form-btn']} onClick={createTask}>Create ToDo</button>
     </form>
   )
 }

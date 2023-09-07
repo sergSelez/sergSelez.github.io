@@ -1,5 +1,6 @@
 import React from 'react'
-import { FilterName, FilterType } from '../../../enums/filterType'
+import { FilterType } from '../../../enums/filterType'
+import classes from './TaskFilter.module.scss'
 
 interface ITaskFilterProps {
   filterType: FilterType,
@@ -9,29 +10,29 @@ interface ITaskFilterProps {
 }
 
 const buttons = [
-  {id: 1, text: FilterName.ALL, value: FilterType.ALL},
-  {id: 2, text: FilterName.ACTIVE, value: FilterType.ACTIVE},
-  {id: 3, text: FilterName.COMPLETED, value: FilterType.COMPLETED},
+  {id: 1, text: FilterType.ALL, value: FilterType.ALL},
+  {id: 2, text: FilterType.ACTIVE, value: FilterType.ACTIVE},
+  {id: 3, text: FilterType.COMPLETED, value: FilterType.COMPLETED},
 ]
 
 const TaskFilter: React.FC<ITaskFilterProps> = ({filterType, setFilterType, amountOfAciveTasks, removeUnactiveTasks}) => {  
   return (
-    <div className='filter'>
-      <div className='filter-count'>
+    <div className={classes.filter}>
+      <div className={classes['filter-count']}>
         {amountOfAciveTasks} {amountOfAciveTasks === 1 ? 'item' : 'items'} left
       </div>
-      <div className='filter-buttons'>
+      <div className={classes['filter-buttons-wrapper']}>
         {buttons.map(button => 
           <button 
             key={button.id} 
-            className={`button ${filterType === button.value ? 'active' : null} `} 
+            className={`${classes['filter-button']} ${filterType === button.value ? classes.active : ''} `} 
             onClick={() => setFilterType(button.value)}
           >
             {button.text}
           </button>
         )}
       </div>
-      <button className='button' onClick={removeUnactiveTasks}>Clear completed</button>
+      <button className={classes['filter-button']} onClick={removeUnactiveTasks}>Clear completed</button>
     </div>
   )
 }

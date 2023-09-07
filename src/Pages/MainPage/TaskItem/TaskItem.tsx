@@ -1,5 +1,6 @@
 import React from 'react'
 import { ITask } from '../../../interfaces/Task'
+import classes from './TaskItem.module.scss'
 
 interface ITaskItemProps {
   task: ITask;
@@ -8,8 +9,12 @@ interface ITaskItemProps {
 
 const TaskItem = ({task, completeTask}: ITaskItemProps) => {
   return (
-    <div className='task' onClick={() => completeTask(task.id)}>
-      <p className={`task-title ${!task.active ? 'unactive' : null}`}>{task.title}</p>
+    <div 
+      className={`${classes.task} ${!task.active ? classes.unactive : ''}`} 
+      onClick={() => completeTask(task.id)}
+    >
+      {task.title}
+      {/* <p className={`${classes['task-title']} ${!task.active ? classes.unactive : ''}`}>{task.title}</p> */}
     </div>
   )
 }

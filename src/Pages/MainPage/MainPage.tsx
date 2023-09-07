@@ -55,22 +55,24 @@ const MainPage: React.FC = () => {
     <>
       <h1 className="title">todos</h1>
 
-      <TaskForm 
-        inputTaskName={inputTaskName} 
-        setInputTaskName={setInputTaskName} 
-        createTask={createTask} 
-      />
+      <div className='app-wrapper'>
+        <TaskForm 
+          inputTaskName={inputTaskName} 
+          setInputTaskName={setInputTaskName} 
+          createTask={createTask} 
+        />
 
-      {filteredTasks.map(task =>
-        <TaskItem key={task.id} task={task} completeTask={completeTask} />
-      )}
+        {filteredTasks.map(task =>
+          <TaskItem key={task.id} task={task} completeTask={completeTask} />
+        )}
 
-      <TaskFilter 
-        amountOfAciveTasks={amountOfAciveTasks} 
-        filterType={filterType} 
-        setFilterType={setFilterType}
-        removeUnactiveTasks={removeUnactiveTasks}
-      />
+        <TaskFilter 
+          amountOfAciveTasks={amountOfAciveTasks} 
+          filterType={filterType} 
+          setFilterType={setFilterType}
+          removeUnactiveTasks={removeUnactiveTasks}
+        />
+      </div>
     </>
   );
 }

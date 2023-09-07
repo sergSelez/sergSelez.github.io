@@ -1,0 +1,35 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+
+  &-buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  &-count {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  &-button {
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.5s color;
+
+    &:hover {
+      color: green;
+    }
+
+    &.active {
+      border: 1px solid gainsboro;
+      border-radius: 5px;
+    }
+  }
+}

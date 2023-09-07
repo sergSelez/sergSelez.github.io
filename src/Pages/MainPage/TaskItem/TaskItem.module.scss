@@ -1,0 +1,21 @@
+.task {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: 1px solid gainsboro;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.5s background-color;
+  word-break: break-all;
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+
+  &.unactive {
+    font-style: italic;
+    text-decoration: line-through;
+    color: gainsboro;
+  }
+}

@@ -1,0 +1,24 @@
+.form {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  font-size: 16px;
+  font-style: italic;
+
+  &-btn {
+    display: block;
+    margin: 20px auto 10px;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s color;
+
+    &:hover {
+      color: green;
+    }
+  }
+}
+
